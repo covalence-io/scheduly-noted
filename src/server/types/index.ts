@@ -1,10 +1,13 @@
-export interface User {
-    id: number;
+export interface BaseUser {
     name: string;
     email: string;
     username: string;
     password: string;
     phone: string;
+}
+
+export interface User extends BaseUser {
+    id: number;
     email_verified: boolean;
     phone_verified: boolean;
     mfa_preference: "none" | "email" | "phone";
@@ -24,6 +27,8 @@ export interface Payload {
     name: User["name"];
     email: User["email"];
     username: User["username"];
+    email_verified: boolean;
+    phone_verified: boolean;
 }
 
 declare global {
